@@ -13,37 +13,57 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
-		this.naziv = naziv;
+		if(naziv.equals(null)||naziv.equals(" ")){
+			System.out.println("Polje naziv mora imati konkretne vrednosti");}
+		else{
+		this.naziv = naziv;}
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
-		this.skraceniNaziv = skraceniNaziv;
+		if(skraceniNaziv.equals(null)||skraceniNaziv.equals(" ")){
+			System.out.println("Polje skraceniNaziv mora imati konkretne vrednosti");}
+		else{
+	       this.skraceniNaziv = skraceniNaziv;}
 	}
 	public GregorianCalendar getDatumValute() {
 		return datumValute;
 	}
-	public void setDatumValute(GregorianCalendar datumValute) {
-		this.datumValute = datumValute;
+	public void setDatumValute(int dan,int mesec,int godina) {
+		if(dan<0||dan>7||mesec<0||mesec>12||godina<2000){
+			System.out.println("Uneti podaci nisu validni");}
+		else{
+			datumValute.set(mesec-1, dan, godina);
+		}
+		
 	}
 	public int getProdajniKurs() {
 		return prodajniKurs;
 	}
 	public void setProdajniKurs(int prodajniKurs) {
-		this.prodajniKurs = prodajniKurs;
+		if(prodajniKurs<=0){
+			System.out.println("Uneta vrednost prodajnog kursa nije validna");}
+		else{
+		this.prodajniKurs = prodajniKurs;}
 	}
 	public int getKupovniKurs() {
 		return kupovniKurs;
 	}
 	public void setKupovniKurs(int kupovniKurs) {
-		this.kupovniKurs = kupovniKurs;
+		if(kupovniKurs<=0){
+			System.out.println("Uneta vrednost kupovnog kursa nije validna");}
+		else{
+		this.kupovniKurs = kupovniKurs;}
 	}
 	public int getSrednjiKurs() {
 		return srednjiKurs;
 	}
 	public void setSrednjiKurs(int srednjiKurs) {
-		this.srednjiKurs = srednjiKurs;
+		if(srednjiKurs<=0){
+			System.out.println("Uneta vrednost srednjeg kursa nije validna");}
+		else{
+		this.srednjiKurs = srednjiKurs;}
 	}
 	@Override
 	public int hashCode() {
