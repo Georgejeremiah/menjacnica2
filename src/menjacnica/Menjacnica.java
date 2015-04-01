@@ -17,20 +17,20 @@ public class Menjacnica implements MenjacnicaInterface {
 		valute.add(valuta);
 	}
 	public void dodajKursValute(GregorianCalendar datum,String nazivValute,int prodajni, int kupovni,int srednji){
-		for(int i=0;i<valute.size();i++){
-			if(valute.get(i).getDatumValute().equals(datum)&&valute.get(i).getNaziv().equals(nazivValute)){
-				valute.get(i).setKupovniKurs(kupovni);
-				valute.get(i).setProdajniKurs(prodajni);
-				valute.get(i).setSrednjiKurs(srednji);
-			}
-		}
+	String skraceniNaziv=nazivValute.substring(3);
+	Valuta valuta=new Valuta();
+	valuta.setKupovniKurs(kupovni);
+	valuta.setNaziv(nazivValute);
+	valuta.setSkraceniNaziv(skraceniNaziv);
+	valuta.setProdajniKurs(prodajni);
+	valuta.setSrednjiKurs(srednji);
+	valuta.setDatumValute(datum.get(GregorianCalendar.DAY_OF_WEEK), datum.get(GregorianCalendar.MONTH), datum.get(GregorianCalendar.YEAR));
+		valute.add(valuta);
 	}
 	public void obrisiKursValute(GregorianCalendar datum, String nazivValute){
 		for(int i=0;i<valute.size();i++){
 			if(valute.get(i).getDatumValute().equals(datum)&&valute.get(i).getNaziv().equals(nazivValute)){
-				valute.get(i).setKupovniKurs(0);
-				valute.get(i).setProdajniKurs(0);
-				valute.get(i).setSrednjiKurs(0);}
+				valute.remove(valute.get(i));}
 			}
 	}
 	public Valuta pronadjiKurs(String nazivValute, GregorianCalendar datum){
